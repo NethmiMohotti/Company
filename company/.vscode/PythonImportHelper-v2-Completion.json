@@ -1,0 +1,434 @@
+[
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "create_engine",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "CHAR",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.ext.declarative",
+        "description": "sqlalchemy.ext.declarative",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.declarative",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "class Employee(Base):\n    __tablename__ = 'employee'\n    employee_id = Column(Integer, primary_key=True, autoincrement=True)\n    first_name = Column(String)\n    last_name = Column(String)\n    salary = Column(Integer)\n    departments = relationship(\"Department\", secondary=\"employee_department\", back_populates=\"employees\")\n    def __init__(self, first_name, last_name, salary):\n        self.first_name = first_name\n        self.last_name = last_name",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "Department",
+        "kind": 6,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "class Department(Base):\n    __tablename__ = 'department'\n    department_id = Column(Integer, primary_key=True, autoincrement=True)\n    department_name = Column(String)\n    employees = relationship(\"Employee\", secondary=\"employee_department\", back_populates=\"departments\")\n    def __init__(self, department_name):\n        self.department_name = department_name\n    def __repr__(self):\n        return f\"<Department(department_id={self.department_id}, name={self.department_name})>\"\n# Define the EmployeeDepartment table",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "EmployeeDepartment",
+        "kind": 6,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "class EmployeeDepartment(Base):\n    __tablename__ = 'employee_department'\n    employee_id = Column(Integer, ForeignKey(\"employee.employee_id\"), primary_key=True)\n    department_id = Column(Integer, ForeignKey(\"department.department_id\"), primary_key=True)\n    def __init__(self, employee_id, department_id):\n        self.employee_id = employee_id\n        self.department_id = department_id\n    def __repr__(self):\n        return f\"({self.employee_id}, {self.department_id})\"\n# Create an engine",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "Base = declarative_base()\n# Define the Employee table\nclass Employee(Base):\n    __tablename__ = 'employee'\n    employee_id = Column(Integer, primary_key=True, autoincrement=True)\n    first_name = Column(String)\n    last_name = Column(String)\n    salary = Column(Integer)\n    departments = relationship(\"Department\", secondary=\"employee_department\", back_populates=\"employees\")\n    def __init__(self, first_name, last_name, salary):",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "engine = create_engine('sqlite:///example.db')\n# Recreate the database (drop all tables and create them again)\nBase.metadata.drop_all(engine)\nBase.metadata.create_all(engine)\n# Create a configured \"Session\" class\nSession = sessionmaker(bind=engine)\n# Create a Session\nsession = Session()\n# Add some data\nemployee1 = Employee(first_name=\"John\", last_name=\"Doe\", salary=50000)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "Session = sessionmaker(bind=engine)\n# Create a Session\nsession = Session()\n# Add some data\nemployee1 = Employee(first_name=\"John\", last_name=\"Doe\", salary=50000)\nemployee2 = Employee(first_name=\"Jason\", last_name=\"Smith\", salary=10000)\nemployee3 = Employee(first_name=\"Emma\", last_name=\"Tonks\", salary=20000)\nemployee4 = Employee(first_name=\"David\", last_name=\"Thompson\", salary=30000)\ndepartment1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "session = Session()\n# Add some data\nemployee1 = Employee(first_name=\"John\", last_name=\"Doe\", salary=50000)\nemployee2 = Employee(first_name=\"Jason\", last_name=\"Smith\", salary=10000)\nemployee3 = Employee(first_name=\"Emma\", last_name=\"Tonks\", salary=20000)\nemployee4 = Employee(first_name=\"David\", last_name=\"Thompson\", salary=30000)\ndepartment1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "employee1",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "employee1 = Employee(first_name=\"John\", last_name=\"Doe\", salary=50000)\nemployee2 = Employee(first_name=\"Jason\", last_name=\"Smith\", salary=10000)\nemployee3 = Employee(first_name=\"Emma\", last_name=\"Tonks\", salary=20000)\nemployee4 = Employee(first_name=\"David\", last_name=\"Thompson\", salary=30000)\ndepartment1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "employee2",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "employee2 = Employee(first_name=\"Jason\", last_name=\"Smith\", salary=10000)\nemployee3 = Employee(first_name=\"Emma\", last_name=\"Tonks\", salary=20000)\nemployee4 = Employee(first_name=\"David\", last_name=\"Thompson\", salary=30000)\ndepartment1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)\nsession.add(employee4)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "employee3",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "employee3 = Employee(first_name=\"Emma\", last_name=\"Tonks\", salary=20000)\nemployee4 = Employee(first_name=\"David\", last_name=\"Thompson\", salary=30000)\ndepartment1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)\nsession.add(employee4)\nsession.add(department1)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "employee4",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "employee4 = Employee(first_name=\"David\", last_name=\"Thompson\", salary=30000)\ndepartment1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)\nsession.add(employee4)\nsession.add(department1)\nsession.add(department2)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "department1",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "department1 = Department(department_name=\"HR\")\ndepartment2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)\nsession.add(employee4)\nsession.add(department1)\nsession.add(department2)\nsession.add(department3)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "department2",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "department2 = Department(department_name=\"Finance\")\ndepartment3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)\nsession.add(employee4)\nsession.add(department1)\nsession.add(department2)\nsession.add(department3)\nsession.commit()",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "department3",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "department3 = Department(department_name=\"Marketing\")\nsession.add(employee1)\nsession.add(employee2)\nsession.add(employee3)\nsession.add(employee4)\nsession.add(department1)\nsession.add(department2)\nsession.add(department3)\nsession.commit()\n# Create a relationship",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "emp_dept",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "emp_dept = EmployeeDepartment(employee_id=employee1.employee_id, department_id=department1.department_id)\nsession.add(emp_dept)\nsession.commit()\n# Query and print results to verify deletions\nemployees = session.query(Employee).all()\ndepartments = session.query(Department).all()\nemployee_departments = session.query(EmployeeDepartment).all()\nprint(\"Employees:\", employees)\nprint(\"Departments:\", departments)\nprint(\"EmployeeDepartments:\", employee_departments)",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "employees",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "employees = session.query(Employee).all()\ndepartments = session.query(Department).all()\nemployee_departments = session.query(EmployeeDepartment).all()\nprint(\"Employees:\", employees)\nprint(\"Departments:\", departments)\nprint(\"EmployeeDepartments:\", employee_departments)\nsession.close()",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "departments",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "departments = session.query(Department).all()\nemployee_departments = session.query(EmployeeDepartment).all()\nprint(\"Employees:\", employees)\nprint(\"Departments:\", departments)\nprint(\"EmployeeDepartments:\", employee_departments)\nsession.close()",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "employee_departments",
+        "kind": 5,
+        "importPath": "current.comapny",
+        "description": "current.comapny",
+        "peekOfCode": "employee_departments = session.query(EmployeeDepartment).all()\nprint(\"Employees:\", employees)\nprint(\"Departments:\", departments)\nprint(\"EmployeeDepartments:\", employee_departments)\nsession.close()",
+        "detail": "current.comapny",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "class Employee(Base):\n    __tablename__ = 'employee'\n    employee_id = Column(\"EmployeeID\", Integer, primary_key=True)\n    first_name = Column(\"FirstName\", String)\n    last_name = Column(\"LastName\", String)\n    salary = Column(\"Salary\", Integer)\n    def __init__(self,employee_id, first_name, last_name, salary):\n        self.employee_id= employee_id\n        self.first_name = first_name\n        self.last_name = last_name",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "Department",
+        "kind": 6,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "class Department(Base):\n    __tablename__ = 'department'\n    department_id = Column(\"DepartmentID\", Integer, primary_key=True)\n    department_name = Column(\"DepartmentName\", String)\n    def __init__(self, department_id, department_name):\n        self.department_id = department_id\n        self.department_name = department_name\n    def __repr__(self):\n        return f\"(DepartmentID:{self.department_id}) Department Name:{self.department_name}\"     \n# Create an engine",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "Base = declarative_base()\n# Define the Employee table\nclass Employee(Base):\n    __tablename__ = 'employee'\n    employee_id = Column(\"EmployeeID\", Integer, primary_key=True)\n    first_name = Column(\"FirstName\", String)\n    last_name = Column(\"LastName\", String)\n    salary = Column(\"Salary\", Integer)\n    def __init__(self,employee_id, first_name, last_name, salary):\n        self.employee_id= employee_id",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "engine = create_engine(\"sqlite:///mydb.db\", echo=True)\n# Create all tables\nBase.metadata.create_all(engine)\n# Create a configured \"Session\" class\nSession = sessionmaker(bind=engine)\n# Create a Session\nsession = Session()\nemp1 = Employee( 121, \"Jason\", \"Smith\", 10000)\nsession.add(emp1)\nemp2 = Employee( 141, \"Emma\", \"Tonks\", 20000)",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "Session = sessionmaker(bind=engine)\n# Create a Session\nsession = Session()\nemp1 = Employee( 121, \"Jason\", \"Smith\", 10000)\nsession.add(emp1)\nemp2 = Employee( 141, \"Emma\", \"Tonks\", 20000)\nsession.add(emp2)\nemp3 = Employee( 151, \"David\", \"Thompson\", 30000)\nsession.add(emp3)\nsession.commit()",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "session = Session()\nemp1 = Employee( 121, \"Jason\", \"Smith\", 10000)\nsession.add(emp1)\nemp2 = Employee( 141, \"Emma\", \"Tonks\", 20000)\nsession.add(emp2)\nemp3 = Employee( 151, \"David\", \"Thompson\", 30000)\nsession.add(emp3)\nsession.commit()\ndepartment1 = Department( 12, \"Finance\")\nsession.add(department1)",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "emp1",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "emp1 = Employee( 121, \"Jason\", \"Smith\", 10000)\nsession.add(emp1)\nemp2 = Employee( 141, \"Emma\", \"Tonks\", 20000)\nsession.add(emp2)\nemp3 = Employee( 151, \"David\", \"Thompson\", 30000)\nsession.add(emp3)\nsession.commit()\ndepartment1 = Department( 12, \"Finance\")\nsession.add(department1)\ndepartment2 = Department( 13, \"Human Resource\")",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "emp2",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "emp2 = Employee( 141, \"Emma\", \"Tonks\", 20000)\nsession.add(emp2)\nemp3 = Employee( 151, \"David\", \"Thompson\", 30000)\nsession.add(emp3)\nsession.commit()\ndepartment1 = Department( 12, \"Finance\")\nsession.add(department1)\ndepartment2 = Department( 13, \"Human Resource\")\nsession.add(department2)\ndepartment3 = Department( 14, \"Marketing\")",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "emp3",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "emp3 = Employee( 151, \"David\", \"Thompson\", 30000)\nsession.add(emp3)\nsession.commit()\ndepartment1 = Department( 12, \"Finance\")\nsession.add(department1)\ndepartment2 = Department( 13, \"Human Resource\")\nsession.add(department2)\ndepartment3 = Department( 14, \"Marketing\")\nsession.add(department3)\nsession.commit()",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "department1",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "department1 = Department( 12, \"Finance\")\nsession.add(department1)\ndepartment2 = Department( 13, \"Human Resource\")\nsession.add(department2)\ndepartment3 = Department( 14, \"Marketing\")\nsession.add(department3)\nsession.commit()\n# # Create a relationship\n# emp_dept = EmployeeDepartment(employee_id=employee1.employee_id, department_id=department1.department_id)\n# session.add(emp_dept)",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "department2",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "department2 = Department( 13, \"Human Resource\")\nsession.add(department2)\ndepartment3 = Department( 14, \"Marketing\")\nsession.add(department3)\nsession.commit()\n# # Create a relationship\n# emp_dept = EmployeeDepartment(employee_id=employee1.employee_id, department_id=department1.department_id)\n# session.add(emp_dept)\n# session.commit()\n# Query and print results",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "department3",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "department3 = Department( 14, \"Marketing\")\nsession.add(department3)\nsession.commit()\n# # Create a relationship\n# emp_dept = EmployeeDepartment(employee_id=employee1.employee_id, department_id=department1.department_id)\n# session.add(emp_dept)\n# session.commit()\n# Query and print results\nemployees = session.query(Employee).all()\ndepartments = session.query(Department).all()",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "employees",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "employees = session.query(Employee).all()\ndepartments = session.query(Department).all()\n# employee_departments = session.query(EmployeeDepartment).all()\nprint(employees)\nprint(departments)\n# print(employee_departments)",
+        "detail": "current.main",
+        "documentation": {}
+    },
+    {
+        "label": "departments",
+        "kind": 5,
+        "importPath": "current.main",
+        "description": "current.main",
+        "peekOfCode": "departments = session.query(Department).all()\n# employee_departments = session.query(EmployeeDepartment).all()\nprint(employees)\nprint(departments)\n# print(employee_departments)",
+        "detail": "current.main",
+        "documentation": {}
+    }
+]
